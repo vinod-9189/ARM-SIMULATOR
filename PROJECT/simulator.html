@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html>
+
+<head >
+	<title>ARM SIMULATOR</title>
+
+	<meta charset="UTF-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+	<!--  CSS FILES USED   -->
+
+	<link rel="stylesheet" href="simulator/style.css">
+	<link rel="stylesheet" href="simulator/bootstrap.min.css">
+	<link rel="stylesheet" href="simulator/panel.css">
+	<link rel="stylesheet" href="simulator/dataTables.bootstrap.css" >
+	<link rel="stylesheet" href="simulator/dataTables.responsive.css" >
+	<link rel="stylesheet" href="simulator/sweet/sweetalert2.min.css" >
+
+	<!--  JAVASCRIPT PLUGINS USED  -->
+
+	<script src="simulator/jquery-2.1.4.min.js"></script>
+	<script src="simulator/popper.min.js"></script>
+	<script src="simulator/plugins.js"></script>
+	<script src="simulator/main.js"></script>
+	<script src="simulator/jquery.min.js"></script>
+	<script src="simulator/bootstrap.min.js"></script>
+	<script src="simulator/popover.js"></script>
+	<script src="simulator/sweet/sweetalert2.min.js"></script>
+
+	<!--  JAVASCRIPT FILES FOR SIMULATOR  -->
+
+	<script src="simulator/js for simulator/FRONT.js"></script>
+	<script src="simulator/js for simulator/DIRECTING.js"></script>
+	<script src="simulator/js for simulator/MNEMONIC_FUNCTIONS.js"></script>
+
+	
+</head>
+
+<script>
+
+	//   USED FOR DIABLING BACK BUTTON
+
+	history.pushState(null,null,location.href);
+	window.onpopstate=function()
+	{
+		history.go(1);
+	};
+
+	
+</script>
+
+<style>
+	.modal-contentgpr
+	{
+		position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 180%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+	outline: 0;
+	right:310px;
+	left:auto;
+	top:20;
+    }
+	#upload-photo 
+	{
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+    }
+	#call-to-action {
+    overflow: hidden;
+    background: linear-gradient(rgba(40, 122, 177, 0.65), rgba(199, 211, 26, 0.2)), fixed center center;
+    background-size: cover;
+    padding: 50px 0;
+}
+a {
+	color:#fff;
+	text-decoration: none;
+}
+a:hover {
+	color:#fff;
+	text-decoration: none;
+}
+
+a:not([href]):not([tabindex]) {
+    color: white;
+    text-decoration: none;
+}
+
+#head {
+  width: 100%;
+  height: 10%;
+  background: linear-gradient(45deg, rgba(23, 113, 187, 0.8), rgba(205, 143, 29, 0.8)), url("../img/intro-bg.jpg") center top no-repeat;
+  background-size: cover;
+  position: relative;
+}
+</style>
+
+<body onload="tour();" onkeydown="return (event.keyCode != 116 && event.keyCode != 82)">
+	<section id="head" style="padding-left:100px;  padding-bottom: 15px; padding-top: 18px;">
+		<h6>
+			<a href="#">ARM SIMULATOR</a> <img hspace="400">
+			<a href="Index.html">Home</a><img hspace="25">
+			<a href="#" onclick="reference();">Reference</a>
+		</h6>
+	</section>
+
+
+	<table style="margin-top: 10px;">
+		<tr>
+			<td valign="top">
+				<div id="wrapper">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+
+								<div class="panel-heading" align="center">
+									<button type="button" class="btn btn-info disabled">CODE PAD</button>
+								</div>
+
+								<div class="panel-body" align="center">
+
+									<table cellspacing="5" cellpadding="5">
+
+										<tr align="center">
+											<td align="center">
+												<label class="btn btn-secondary" onclick="clr();" data-trigger="hover" data-toggle="popover" title="CLEAR"
+												 data-content="CLEARS THE INSTRUCTION">
+													CLEAR
+												</label>
+											</td>
+
+											<td>
+												<label class="btn btn-secondary" onclick="back();" data-trigger="hover" data-toggle="popover" title="BACK"
+												 data-content="CLEARS THE LAST MNEMONIC">
+													BACK
+												</label>
+											</td>
+											
+											<td style="padding-bottom:10px;">
+												<button type="button" class="btn btn-secondary mb-1" onclick="direct();" data-toggle="modal" data-target="#smallmodal2"
+									 data-trigger="hover" title="EXECUTED INSTRUCTIONS." data-content="LIST OF INSTRUCTIONS THAT HAS BEEN EXECUTED.">
+										SUBMIT
+									</button>
+											</td>
+
+											<td>
+												<label class="btn btn-secondary" for="upload-photo" data-trigger="hover" data-toggle="popover" title="CHOOSE"
+												 data-content="CHOOSE A FILE FROM FILE SYSTEM">
+													CHOOSE
+												</label>
+												<input type="file" name="photo" id="upload-photo" accept='text/plain' onchange='openFile(event)' />
+											</td>
+
+										</tr>
+
+									</table>
+
+									<div id="wrapper">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="panel panel-default">
+
+													<div class="panel-heading" align="center">
+														<button type="button" class="btn btn-info disabled">INSTRUCTION</button>
+													</div>
+
+													<div class="panel-body" align="center">
+														<p id="minstruction"></p>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div id="wrapper">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="panel panel-default">
+
+													<div class="panel-heading" align="center" id="dhead">
+														<button type="button" class="btn btn-info disabled">MNEMONICS</button>
+													</div>
+
+													<div class="panel-body" align="center" id="d">
+
+														<table cellspacing="5" cellpadding="5">
+
+															<tr align="center">
+																<td align="center">
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('ADC00');" data-trigger="hover" data-toggle="popover"
+																		 title="ADC" data-content="ADDITION WITH CARRY.">
+																			ADC
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('ADD01')" data-trigger="hover" data-toggle="popover"
+																		 title="ADD" data-content="ADDITION OF TWO OPERANDS">
+																			ADD
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('AND02')" data-trigger="hover" data-toggle="popover"
+																		 title="AND" data-content="BITWISE AND OF TWO OPERANDS.">
+																			AND
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('BIC03')" data-trigger="hover" data-toggle="popover"
+																		 title="BIC" data-content="BITWISE AND WITH THE COMPLEMENT OF SECOND OPERATOR.">
+																			BIC
+																		</label>
+																	</div>
+																</td>
+
+															</tr>
+
+															<tr align="center">
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('CMN04')" data-trigger="hover" data-toggle="popover"
+																		 title="CMN" data-content="ADDITION OF TWO OPERANDS AND UPDATES THE FLAG VALUES.">
+																			CMN
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('CMP05')" data-trigger="hover" data-toggle="popover"
+																		 title="CMP" data-content="SUBTRACTION OF TWO OPERANDS AND UPDATES THE FLAG VALUES.">
+																			CMP
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('EOR06')" data-trigger="hover" data-toggle="popover"
+																		 title="EOR" data-content="EXCLUSIVE OR(XOR) ON TWO OPERANDS.">
+																			EOR
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('MOV07')" data-trigger="hover" data-toggle="popover"
+																		 title="MOV" data-content="MOVES THE VALUE TO THE SPECIFIED REGISTER.">
+																			MOV
+																		</label>
+																	</div>
+																</td>
+
+															</tr>
+
+															<tr align="center">
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('MVN08')" data-trigger="hover" data-toggle="popover"
+																		 title="MVN" data-content="MOVES THE ONE'S COMPLEMENT OF THE VALUE INTO THE REGISTER.">
+																			MVN
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('ORR09')" data-trigger="hover" data-toggle="popover"
+																		 title="ORR" data-content="INCLUSIVE BITWISE OR (OR) OF TWO OPERANDS.">
+																			ORR
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('RSB10')" data-trigger="hover" data-toggle="popover"
+																		 title="RSB" data-content="REVERSE SUBTRACTION.(R0, R1 => R1 - R0.).">
+																			RSB
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('RSC11')" data-trigger="hover" data-toggle="popover"
+																		 title="RSC" data-content="REVERSE SUBTRACTION WITH CARRY.(R0, R1 => (R1 - R0) - NOT(CARRY FLAG). ).">
+																			RSC
+																		</label>
+																	</div>
+																</td>
+
+															</tr>
+
+															<tr align="center">
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('SBC12')" data-trigger="hover" data-toggle="popover"
+																		 title="SBC" data-content="SUBTRACTION WITH CARRY.(R0, R1 => (R0 - R1) - NOT(CARRY FLAG) ).">
+																			SBC
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('SUB13')" data-trigger="hover" data-toggle="popover"
+																		 title="SUB" data-content="SUBTRACTION.(R0, R1 => R0 - R1).">
+																			SUB
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('TEQ14')" data-trigger="hover" data-toggle="popover"
+																		 title="TEQ" data-content="EOR ON TWO OPERANDS AND UPDATES THE FLAG REGISTERS.">
+																			TEQ
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('TST15')" data-trigger="hover" data-toggle="popover"
+																		 title="TST" data-content="AND ON TWO OPERANDS AND UPDATES THE FLAG REGISTERS.">
+																			TST
+																		</label>
+																	</div>
+																</td>
+
+															</tr>
+
+															<tr align="center">
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('MUL17')" data-trigger="hover" data-toggle="popover"
+																		 title="MUL" data-content="MULTIPLICATION OF TWO OPERANDS.">
+																			MUL
+																		</label>
+																	</div>
+																</td>
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('LDR18')" data-trigger="hover" data-toggle="popover"
+																		 title="LDR" data-content="LOADS THE VALUE FROM THE SPECIFIED ADDRESS INTO THE REGISTER MENTIONED IN THE INSTRUCTION.">
+																			LDR
+																		</label>
+																	</div>
+																</td>
+
+																<td>
+																	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+																		<label class="btn btn-secondary" onclick="mnemonic('STR19')" data-trigger="hover" data-toggle="popover"
+																		 title="STR" data-content="STORES THE VALUE OF THE REGISTER TO THE ADDRESS MENTIONED IN THE INSTRUCTION.">
+																			STR
+																		</label>
+																	</div>
+																</td>
+
+															</tr>
+
+														</table>
+
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+
+			<td valign="top" width="400">
+				<div id="wrapper">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading" align="center">
+									<button type="button" class="btn btn-info disabled">INSTRUCTION TABLE</button>
+								</div>
+
+
+								<div class="panel-body" align="center" style="padding-bottom: 28px; padding-top: 27px;">
+									<button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#smallmodal2"
+									 data-trigger="hover" title="EXECUTED INSTRUCTIONS." data-content="LIST OF INSTRUCTIONS THAT HAS BEEN EXECUTED.">
+										INSTRUCTION
+									</button>
+									<div class="modal fade" id="smallmodal2" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" style="display: none;"
+									 aria-hidden="true">
+										<div class="modal-dialog modal-sm" role="document">
+											<div class="modal-content" style="width: 500px; right: 130px;">
+												<div class="modal-header">
+													<h5 class="modal-title" id="smallmodalLabel">INSTRUCTIONS</h5>
+												</div>
+
+												<div class="modal-body">
+													<table class="table table-dark" id="instruction">
+														<thead>
+															<tr>
+																<td align="center">COUNT</td>
+																<td width="400" align="center">INSTRUCTION</td>
+															</tr>
+														</thead>
+
+														<tbody id="itbody">
+														</tbody>
+
+													</table>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+
+			<td valign="top">
+				<div id="wrapper">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading" align="center">
+									<button type="button" class="btn btn-info disabled">CPSR AND GPR TABLE</button>
+								</div>
+
+								<div class="panel-body" align="center" style="padding-bottom: 28px; padding-top: 27px;">
+
+
+									<button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal"
+									 data-trigger="hover" title="CURRENT PROGRAM STATUS REGISTER." data-content="LIST OF FLAG REGISTER VALUES.">CPSR</button>
+									<button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#scrollmodal"
+									 data-trigger="hover" title="GENERAL PURPOSE REGISTER." data-content="LIST OF GENERAL PURPOSE REGISTER VALUES.">GPR</button>
+
+									<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel"
+									 aria-hidden="true">
+										<div class="modal-dialog modal-lg" role="document">
+											<div class="modal-content">
+
+												<div class="modal-header">
+													<h5 class="modal-title" id="largeModalLabel">CPSR</h5>
+												</div>
+
+												<div class="modal-body">
+													<table class="table table-dark" id="cpsr">
+														<thead>
+			<th>N</th>
+			<th>Z</th>
+			<th>C</th>
+			<th>V</th>
+			
+			</thead>
+		<tr>
+			<td id="N">0</td>
+			<td id="Z">0</td>
+			<td id="C">0</td>
+			<td id="V">0</td>
+			
+		</tr>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+
+
+	<div class="modal fade" id="scrollmodal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-contentgpr">
+
+				<div class="modal-header">
+					<h5 class="modal-title" id="scrollmodalLabel" style="padding-left:600px;">GENERAL PURPOSE REGISTER</h5>
+				</div>
+
+				<div class="modal-body">
+
+					<table class="table table-dark" id="gpr" width="140%">
+						<tr>
+							<td>COUNT</td>
+							<td>INSTRUCTION</td>
+							<td>R0</td>
+							<td>R1</td>
+							<td>R2</td>
+							<td>R3</td>
+							<td>R4</td>
+							<td>R5</td>
+							<td>R6</td>
+							<td>R7</td>
+							<td>R8</td>
+							<td>R9</td>
+							<td>R10</td>
+							<td>R11</td>
+							<td>R12</td>
+							<td>R13</td>
+							<td>R14</td>
+							<td>R15</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</td>
+
+	<td valign="top">
+		<div id="wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading" align="center">
+							<button type="button" class="btn btn-info disabled">CPSR AND GPR TABLE</button>
+						</div>
+
+						<div class="panel-body" align="center" style="padding-bottom: 28px; padding-top: 27px;">
+							<button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#smallmodal" data-trigger="hover"
+							 title="STACK MEMORY." data-content="LIST OF VALUES THAT IS STORED IN MEMORY.">
+								STACK TABLE
+							</button>
+							<div class="modal fade" id="smallmodal" tabi ndex="-1" role="dialog" aria-labelledby="smallmodalLabel" style="display: none;"
+							 aria-hidden="true">
+								<div class="modal-dialog modal-sm" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="smallmodalLabel">STACK TABLE</h5>
+										</div>
+
+										<div class="modal-body">
+											<table class="table table-dark" id="stack">
+												<tbody>
+													<tr>
+														<td>ADDRESS</td>
+														<td>DATA</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</td>
+	</tr>
+	</table>
+
+	<script>
+
+		function reference() {
+			window.open("./Reference.html");
+		}
+		$(document).ready(function () {
+			$('[data-toggle="modal"]').popover();
+		});
+		$(document).ready(function () {
+			$('[data-toggle="popover"]').popover();
+		});
+
+		function refresh() {
+			$('[data-toggle="popover"]').popover();
+		}
+
+	</script>
+
+</body>
+
+</html>

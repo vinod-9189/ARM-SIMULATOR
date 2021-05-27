@@ -1,0 +1,5 @@
+MOV, NE, R0, #0
+MOV, EQ, R1, #20
+MOV, EQ, R0, #10
+ADD, EQ, R2, R0, R1 
+#

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Arm Simulator</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="css/sweetalert.css" rel="stylesheet">
+  <link rel="stylesheet" href="simulator/panel.css">
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+  <script>
+    function play(url)
+    {
+      window.open("./Videos/"+url);
+    }
+
+    function book(url)
+    {
+      
+      window.open("./"+url);
+    }
+    
+    history.pushState(null,null,location.href);
+	  window.onpopstate=function()
+	  {
+	  	history.go(1);
+	  };
+  </script>
+</head>
+<style>
+  #call-to-action
+  {
+    padding: 0px;
+  }
+  .btn.btn-info.disabled
+  {
+    background-color:#17a2b8;
+  }
+  .fa {
+    font-size: large;
+  }
+</style>
+
+<body id="body" onload="window.scrollbars=0">
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">ARM SIMULATOR</a></h1>
+      </div>
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="#about">Home</a></li>
+          <li><a href="#Videos">Videos</a>
+          <li><a href="#Reference">Reference</a></li>
+          <li><a href="simulator.html">Simulator</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="intro">
+
+    <div class="intro-text">
+      <h2>Welcome to Arm Simulator</img></h2>
+    </div>
+
+
+
+  </section>
+
+  <main id="main">
+
+    <section id="about" class="wow fadeInUp">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 about-img" style="right:100px">
+            <img src="img/9.gif" alt="">
+          </div>
+
+          <div class="col-lg-6 content" style="right:100px;">
+            <h2>
+              <font color="gray">Main Features of the Arm Instruction Set
+            </h2>
+
+            <h3 style="width:800px;"> <i class="ion-android-checkmark-circle"></i>ARM is a RISC processor and therefore has a simplified instruction set (100 instructions or less).</h3>
+            <h3> <i class="ion-android-checkmark-circle"></i>ARM has more general purpose registers than CISC.</h3>
+            <h3> <i class="ion-android-checkmark-circle"></i>Most Instruction can be conditionally executed</h3>
+            <h3> <i class="ion-android-checkmark-circle"></i>Every instruction must be of the format mentioned below</h3>
+            <h3> <i class="ion-android-checkmark-circle"></i>MNEMONIC {S} {condition} {Rd}, Operand1, Operand2</h3>
+            <h3> <i class="ion-android-checkmark-circle"></i>Data procesing intsruction act only on register</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================================================================================================ -->
+    <section id="call-to-action"></section>
+    <!-- ============================================================================================================================================ -->
+
+    <section id="Videos">
+
+      <table>
+        <tbody>
+
+          <tr>
+
+            <td style="padding-left:80px; padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="TOUR.mp4" onclick="play(name)">WEBSITE TOUR</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/5.jpeg" style="width:200px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="SIMULATOR.mp4" onclick="play(name)">SIMULATOR TOUR</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/6.jpeg" style="width:200px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="CONDITIONAL.mp4" onclick="play(name)">CONDITIONAL</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/9.gif" style="width:200px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="SHORTHAND.mp4" onclick="play(name)">SHORTHAND </button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/call-to-action-bg.jpg" style="width:200px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="FILE.mp4" onclick="play(name)">FILE EXECUTION</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/1.jpg" style="width:200px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+          </tr>
+
+          <tr>
+            
+            <td style="padding-left:80px; padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="MOV,MVN.mp4" onclick="play(name)">MOV,MVN INSTRUCTION</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/2.jpg" style="width:200px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="LDR.mp4" onclick="play(name)">LDR INSTRUCTION</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/c.png" style="width:150px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="STR.mp4" onclick="play(name)">STR INSTRUCTION</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/e.png" style="width:150px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="IMMEDIATE.mp4" onclick="play(name)">IMMEDIATE</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/first.jpg" style="width:200px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+            <td style="padding-right: 25px;">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+
+                      <div class="panel-heading" align="center">
+                        <button type="button" class="btn btn-info disabled" name="SHIFTER.mp4" onclick="play(name)">SHIFTER</button>
+                      </div>
+
+                      <div class="panel-body" align="center">
+                        <img src="img/d.png" style="width:150px; height:150px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+<br><br>
+
+    <!-- ============================================================================================================================================ -->
+    <section id="call-to-action" style="height:50px; padding-bottom: 25px; padding-top: 25px;"></section>
+    <!-- ============================================================================================================================================ -->
+   
+    <section id="Reference">
+      <main id="main">
+       
+          <div class="container">
+            <br><br><br>
+            <h1 align="center"><small><i class="text-info">Frequently Refered Topics</i></small></h1>
+            <br><br>
+            <div id="accordion" role="tablist">
+              <div class="card">
+                <div class="card-header" role="tab" id="headingOne">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <i class="ion-android-arrow-dropdown-circle"></i> Why Arm
+                    </a>
+                  </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-body">
+                    <i class="fa fa-rocket">ARM processor has become one of the most widespread CPU cores in the
+                      world. Which brings us to the fact that like PCs, IoT devices are susceptible to improper input
+                      validation abuse such as buffer overflows.</i><br><br>
+                    <i class="fa fa-rocket">ARM is a RISC (Reduced instruction set Computing) processor and therefore
+                      has a simplified instruction set (100 instructions or less) and more general purpose registers
+                      than CISC.</i><br><br>
+                    <i class="fa fa-rocket">In ARM, most instructions can be used for conditional execution.</i><br><br>
+                    <i class="fa fa-rocket"> The Intel x86 and x86-64 series of processors use the little-endian
+                      format</i><br>
+                    <i class="fa fa-rocket">The ARM architecture was little-endian before version 3. Since then ARM
+                      processors became BI-endian and feature a setting which allows for switchable endianness.</i><br>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <i class="ion-android-arrow-dropdown-circle"></i> Writing Assembly
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="card-body">
+                    <img src="img/Refrence/Assemble.png" width="100%" height="auto">
+                    <img src="img/Refrence/Assemble.gif" width="100%" height="auto">
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" role="tab" id="headingFour">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false"
+                      aria-controls="collapseFour">
+                      <i class="ion-android-arrow-dropdown-circle"></i>Arm Register
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="card-body">
+
+                    <i class="fa fa-rocket"> The total 16 registers are split into two groups: general purpose and
+                      special purpose registers.</i><br><br>
+
+                    <i class="fa fa-rocket">R0-R12: Can be used during common operations to store temporary values,
+                      pointers (locations to memory), etc. R0, for example, can be referred as accumulator during the
+                      arithmetic operations or for storing the result of a previously called function.  </i> <br><br>
+
+                    <i class="fa fa-rocket">R13: SP (Stack Pointer). The Stack Pointer points to the top of the
+                      stack. The stack is an area of memory used for function-specific storage, which is reclaimed
+                      when the function returns.</i> <br><br>
+
+                    <i class="fa fa-rocket">R14: LR (Link Register). When a function call is made, the Link Register
+                      gets updated with a memory address referencing the next instruction where the function was
+                      initiated from. Doing this allows the program return to the “parent” function that initiated
+                      the “child” function call after the “child” function is finished.</i> <br><br>
+
+                    <i class="fa fa-rocket">R15: PC (Program Counter). The Program Counter is automatically
+                      incremented by the size of the instruction executed. This size is always 4 bytes in ARM state
+                      and 2 bytes in THUMB mode. When a branch instruction is being executed, the PC holds the
+                      destination address.</i> <br>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                      <i class="ion-android-arrow-dropdown-circle"></i> Mnemonic Operations
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="card-body">
+                    <img src="img/a1.png" width="100%" height="auto">
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseTwo">
+                      <i class="ion-android-arrow-dropdown-circle"></i> Conditional Execution
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="card-body">
+                    <img src="img/b1.png" width="100%" height="auto">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        
+      </main>
+      <br><br>
+    </section>
+
+
+    <!-- ============================================================================================================================================ -->
+    <section id="call-to-action"></section>
+    <!-- ============================================================================================================================================ -->
+    
+    <section id="team" class="section-bg">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="section-title">Our Team</h3>
+          <span class="section-divider"></span>
+          <p class="section-description"></p>
+        </div>
+
+        <div class="row wow fadeInUp">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="img/pic.jpg" alt=""></div>
+              <h4></h4>
+              <span>GUIDE</span>
+              <div class="social">
+                <a href="www.twitter.com"><i class="fa fa-twitter"></i></a>
+                <a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
+                <a href="www.google-plus.com"><i class="fa fa-google-plus"></i></a>
+                <a href="www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" style="left: 100px;">
+            <div class="member">
+              <div class="pic"><img src="img/pic.jpg" alt=""></div>
+              <h4></h4>
+              <span>DEVELOPER</span>
+              <div class="social">
+                <a href="www.twitter.com"><i class="fa fa-twitter"></i></a>
+                <a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
+                <a href="www.google-plus.com"><i class="fa fa-google-plus"></i></a>
+                <a href="www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" style="left: 200px;">
+            <div class="member">
+              <div class="pic"><img src="img/pic.jpg" alt=""></div>
+              <h4></h4>
+              <span>DEVELOPER</span>
+              <div class="social">
+                <a href="www.twitter.com"><i class="fa fa-twitter"></i></a>
+                <a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
+                <a href="www.google-plus.com"><i class="fa fa-google-plus"></i></a>
+                <a href="www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- ============================================================================================================================================ -->
+    <section id="contact">
+      <div class="container">
+        <div class="row wow fadeInUp">
+
+          <div class="col-lg-4 col-md-4">
+            <div class="contact-about">
+              <h3>ARM</h3>
+              <p></p>
+              <div class="social-links">
+                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="info">
+              <div>
+                <i class="ion-ios-location-outline"></i>
+                <p>Sathya sai grama<br>Muddenahalli , 562141</p>
+              </div>
+
+              <div>
+                <i class="ion-ios-email-outline"></i>
+                <p>vidra@gmail.com</p>
+              </div>
+
+              <div>
+                <i class="ion-ios-telephone-outline"></i>
+                <p>7338861717</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================================================================================================ -->
+    <!-- Frame Modal Bottom -->
+    
+    <div class="modal fade bottom" id="Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+      <!-- Add class .modal-frame and then add class .modal-bottom (or other classes from list above) to set a position to the modal -->
+      <div class="modal-dialog modal-frame modal-bottom" role="document">
+
+
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="row d-flex justify-content-center align-items-center">
+
+              <p class="pt-3 pr-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nisi quo
+                provident fugiat reprehenderit nostrum
+                quos..
+              </p>
+
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Frame Modal Bottom -->
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>SSSIHL</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="https://sssihl.edu.in">SSSIHL</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="js/ARM.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/collapse.js"></script>
+  <script src="js/tooltip.js"></script>
+  <script src="js/popover.js"></script>
+  <script src="css/sweetalert.js"></script>
+  <script>
+    var firefoxTestDone = false
+    function reportFirefoxTestResult(result) {
+      if (!firefoxTestDone) {
+        $('#ff-bug-test-result')
+          .addClass(result ? 'text-success' : 'text-danger')
+          .text(result ? 'PASS' : 'FAIL')
+      }
+    }
+
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+      $('[data-toggle="tooltip"]').tooltip()
+
+      $('#tall-toggle').click(function () {
+        $('#tall').toggle()
+      })
+
+      $('#ff-bug-input').one('focus', function () {
+        $('#firefoxModal').on('focus', reportFirefoxTestResult.bind(false))
+        $('#ff-bug-input').on('focus', reportFirefoxTestResult.bind(true))
+      })
+
+      $('#btnPreventModal').on('click', function () {
+        $('#firefoxModal').one('shown.bs.modal', function () {
+          $(this).modal('hide')
+        })
+          .one('hide.bs.modal', function (event) {
+            event.preventDefault()
+            if ($(this).data('bs.modal')._isTransitioning) {
+              console.error('Modal plugin should not set _isTransitioning when hide event is prevented')
+            } else {
+              console.log('Test passed')
+              $(this).modal('hide') // work as expected
+            }
+          })
+          .modal('show')
+      })
+
+      // Test transition duration
+      var t0, t1;
+
+      $('#slowModal').on('shown.bs.modal', function () {
+        t1 = performance.now()
+        console.log('transition-duration took ' + (t1 - t0) + 'ms.')
+      }).on('show.bs.modal', function () {
+        t0 = performance.now()
+      })
+
+    })
+  </script>
+</body>
+
+</html>

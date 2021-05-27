@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>REFERENCE</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="css/sweetalert.css" rel="stylesheet">
+  <link rel="stylesheet" href="simulator/panel.css">
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+  <script>
+    function play(url)
+    {
+      window.open("./Videos/"+url);
+    }
+
+    function book(url)
+    {
+      
+      window.open("./"+url);
+    }
+  </script>
+</head>
+<style>
+  #call-to-action
+  {
+    padding: 0px;
+  }
+  .btn.btn-info.disabled
+  {
+    background-color:#17a2b8;
+  }
+  .fa {
+    font-size: large;
+  }
+  #head {
+  width: 100%;
+  height: 10%;
+  background: linear-gradient(45deg, rgba(23, 113, 187, 0.8), rgba(205, 143, 29, 0.8)), url("../img/intro-bg.jpg") center top no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+a {
+	color:#fff;
+	text-decoration: none;
+}
+a:hover {
+	color:#fff;
+	text-decoration: none;
+}
+
+a:not([href]):not([tabindex]) {
+    color: white;
+    text-decoration: none;
+}
+</style>
+
+<body id="body">
+  <section id="head" style="padding-left:100px;  padding-bottom: 15px; padding-top: 18px;">
+		<h6 style="height:0px;">
+			<a>ARM SIMULATOR</a> <img hspace="400"> 
+		</h6>
+	</section>
+
+  
+  <section id="Reference">
+		<div class="accordion" id="accordionExample" style="width: 1080px; margin-left: 150px; margin-top: 50px;">
+			
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h5 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+						 aria-controls="collapseOne">
+						 Register Organisation
+						</button>
+					</h5>
+				</div>
+
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
+						<i class="fa fa-rocket"> The total 16 registers are split into two groups: general purpose and
+							special purpose registers.</i><br><br>
+	  
+						  <i class="fa fa-rocket">R0-R12: Can be used during common operations to store temporary values,
+							pointers (locations to memory), etc. R0, for example, can be referred as accumulator during the
+							arithmetic operations or for storing the result of a previously called function.  </i> <br><br>
+	  
+						  <i class="fa fa-rocket">R13: SP (Stack Pointer). The Stack Pointer points to the top of the
+							stack. The stack is an area of memory used for function-specific storage, which is reclaimed
+							when the function returns.</i> <br><br>
+	  
+						  <i class="fa fa-rocket">R14: LR (Link Register). When a function call is made, the Link Register
+							gets updated with a memory address referencing the next instruction where the function was
+							initiated from. Doing this allows the program return to the “parent” function that initiated
+							the “child” function call after the “child” function is finished.</i> <br><br>
+	  
+						  <i class="fa fa-rocket">R15: PC (Program Counter). The Program Counter is automatically
+							incremented by the size of the instruction executed. This size is always 4 bytes in ARM state
+							and 2 bytes in THUMB mode. When a branch instruction is being executed, the PC holds the
+							destination address.</i>
+	  
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="headingTwo">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+						 aria-expanded="false" aria-controls="collapseTwo">
+							Mnemonic Operations
+						</button>
+					</h5>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+					<div class="card-body">
+						<img src="img/a1.png" width="100%" height="auto">
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="headingThree">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+						 aria-expanded="false" aria-controls="collapseThree">
+							Conditional Execution
+						</button>
+					</h5>
+				</div>
+				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+					<div class="card-body">
+						<img src="img/b1.png" width="100%" height="auto">
+					</div>
+				</div>
+      </div>
+      
+      <div class="card">
+				<div class="card-header" id="headingThree">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+						 aria-expanded="false" aria-controls="collapseFour">
+							File Execution
+						</button>
+					</h5>
+				</div>
+				<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+					<div class="card-body">
+            <h5>1. Click CHOOSE button.</h5>
+            <h5>2. Select the file for Execution.</h5>
+            <h5>3. Click SUBMIT button to execute the file.</h5>
+					</div>
+				</div>
+			</div>
+
+      <div class="card">
+				<div class="card-header" id="headingThree">
+					<h5 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+						 aria-expanded="false" aria-controls="collapseFive">
+							File Format
+						</button>
+					</h5>
+				</div>
+				<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+					<div class="card-body">
+            <h5>1. Each word of the instruction must end with ",  "(comma and space), except the last.</h5>
+            <h5>2. The end of file is recognised with (#).</h5>
+            <h5>3. The file should be of txt format.</h5>
+            <h4>Example (File contents)</h4>
+            <h5><img hspace="25">MOV, NE, R0, #0</h5>
+            <h5><img hspace="25">MOV, EQ, R1, #20</h5>
+            <h5><img hspace="25">MOV, EQ, R0, #10</h5>
+            <h5><img hspace="25">ADD, EQ, R2, R0, R1</h5>
+            <h5><img hspace="25">#</h5>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="js/ARM.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/collapse.js"></script>
+  <script src="js/tooltip.js"></script>
+  <script src="js/popover.js"></script>
+  <script src="css/sweetalert.js"></script>
+  <script>
+    var firefoxTestDone = false
+    function reportFirefoxTestResult(result) {
+      if (!firefoxTestDone) {
+        $('#ff-bug-test-result')
+          .addClass(result ? 'text-success' : 'text-danger')
+          .text(result ? 'PASS' : 'FAIL')
+      }
+    }
+
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+      $('[data-toggle="tooltip"]').tooltip()
+
+      $('#tall-toggle').click(function () {
+        $('#tall').toggle()
+      })
+
+      $('#ff-bug-input').one('focus', function () {
+        $('#firefoxModal').on('focus', reportFirefoxTestResult.bind(false))
+        $('#ff-bug-input').on('focus', reportFirefoxTestResult.bind(true))
+      })
+
+      $('#btnPreventModal').on('click', function () {
+        $('#firefoxModal').one('shown.bs.modal', function () {
+          $(this).modal('hide')
+        })
+          .one('hide.bs.modal', function (event) {
+            event.preventDefault()
+            if ($(this).data('bs.modal')._isTransitioning) {
+              console.error('Modal plugin should not set _isTransitioning when hide event is prevented')
+            } else {
+              console.log('Test passed')
+              $(this).modal('hide') // work as expected
+            }
+          })
+          .modal('show')
+      })
+
+      // Test transition duration
+      var t0, t1;
+
+      $('#slowModal').on('shown.bs.modal', function () {
+        t1 = performance.now()
+        console.log('transition-duration took ' + (t1 - t0) + 'ms.')
+      }).on('show.bs.modal', function () {
+        t0 = performance.now()
+      })
+
+    })
+  </script>
+</body>
+
+</html>
